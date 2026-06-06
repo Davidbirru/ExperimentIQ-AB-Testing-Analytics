@@ -3,9 +3,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.stats.proportion import proportion_confint
 
-# ==================================
+
 # Setup
-# ==================================
+
 
 os.makedirs("figures", exist_ok=True)
 
@@ -21,9 +21,9 @@ plt.rcParams.update({
 
 df = pd.read_csv("data/ab_test_data.csv")
 
-# ==================================
+
 # Metrics
-# ==================================
+
 
 group_a = df[df["group"] == "A"]
 group_b = df[df["group"] == "B"]
@@ -44,9 +44,9 @@ relative_improvement = (
     (rate_b - rate_a) / rate_a
 ) * 100
 
-# ==================================
+
 # Confidence Intervals
-# ==================================
+
 
 lower_a, upper_a = proportion_confint(
     conv_a,
@@ -63,9 +63,9 @@ lower_b, upper_b = proportion_confint(
 monthly_gain = 146944
 annual_gain = 1763330
 
-# ==================================
+
 # 1. Conversion Rate Comparison
-# ==================================
+
 
 plt.figure(figsize=(8, 5))
 
@@ -123,9 +123,9 @@ plt.savefig(
 
 plt.close()
 
-# ==================================
+
 # 2. Confidence Intervals
-# ==================================
+
 
 plt.figure(figsize=(8, 5))
 
@@ -174,9 +174,9 @@ plt.savefig(
 
 plt.close()
 
-# ==================================
+
 # 3. Revenue Impact
-# ==================================
+
 
 plt.figure(figsize=(9, 5))
 
